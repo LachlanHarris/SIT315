@@ -1,0 +1,30 @@
+// C++ code
+//
+int temp = 0;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(7, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  temp = analogRead(A0);
+  //temperature sensor output
+  Serial.print("Temperature output: ");
+  Serial.println(temp);
+  //LED sensor pin output
+  Serial.print("LED sensor: ");
+  Serial.println(digitalRead(7));
+  //if the temperature is above 0 celsius
+  if (temp > 104)
+  {
+    digitalWrite(7, HIGH);
+  }
+  else
+  {
+    digitalWrite(7, LOW);
+  }
+}
